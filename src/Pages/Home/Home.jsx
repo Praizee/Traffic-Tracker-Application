@@ -23,7 +23,7 @@ const HomePage = () => {
                     <h1 className="text-3xl">
                         Hello World!
                     </h1>
-                    <Link to="signup" className="btn btn-neutral mt-10">
+                    <Link to="login" className="btn btn-neutral mt-10">
                         Get Started
                     </Link>
                 </div>
