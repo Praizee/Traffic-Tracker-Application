@@ -18,8 +18,8 @@ const HomePage = () => {
       transition={{ duration: 1.5 }}
     >
       {/* <section className="bg-hero-bg bg-cover bg-center h-screen pt-20 pb-10 lg:px-12 md:px-5 px-4"> */}
-      <section className="bg-[#6386B0] bg-cover bg-center h-screen pt-20 pb-10 lg:px-12 md:px-5 px-4">
-        <div className="text-white">
+      <section className="bg-[url(https://res.cloudinary.com/stephen1407/image/upload/v1710101299/hero-bg_wpnnsm.png)] bg-cover bg-center bg-no-repeat h-screen pt-20 pb-10 lg:px-12 md:px-5 px-4">
+                    <div className="text-white">
           <h1 className="text-3xl">Traffic Tracker Application</h1>
           <p>
             Lorem ipsum dolor sit amet dolore tincidunt erat sadipscing dolore
