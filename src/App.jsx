@@ -22,7 +22,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
-          <Route path="history" element={<TripHistory />} />
+          <Route path="trip-history" element={<TripHistory />} />
         </Route>
       </Routes>
     </Router>
