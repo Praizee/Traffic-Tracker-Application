@@ -214,7 +214,7 @@ const DashboardLayout = () => {
 
           <div
             // className="flex px-6 md:pl-12 mx-8 w-full max-w-[1124px]"
-            className={`flex px-6 md:pl-12 mx-8 ${
+            className={`flex px-1 md:pl-12 md:mx-8 ${
               collapsed ? "max-w-[1224px]" : "max-w-[1124px]"
             } w-full`}
           >
@@ -236,7 +236,7 @@ const DashboardLayout = () => {
               </a>
             </div>
 
-            <div className="flex gap-4 flex-none">
+            <div className="flex gap-4 justify-between md:justify-normal lg:flex-none">
               {/* notification */}
               <div className="dropdown dropdown-end mt-1.5">
                 <div
@@ -283,7 +283,7 @@ const DashboardLayout = () => {
               </div>
 
               {/* search */}
-              <form className="relative">
+              <form className="relative hidden lg:block">
                 <label for="Search" className="sr-only">
                   Search
                 </label>
@@ -333,6 +333,28 @@ const DashboardLayout = () => {
                   </button>
                 </span>
               </form>
+
+              <div className="form-control my-auto lg:hidden block">
+                <label className="input input-bordered flex items-center gap-2">
+                  <input
+                    type="text"
+                    className="grow w-24"
+                    placeholder="Search"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="w-4 h-4 opacity-70"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </label>
+              </div>
 
               {/* avatar */}
               <div className="dropdown dropdown-end mt-1.5">
