@@ -7,6 +7,7 @@ import Signup from "./Pages/Signup/Signup";
 import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Profile from "./Pages/Profile/Profile";
+import Notifications from "./Pages/Notifications/Notifications";
 import TripHistory from "./Pages/TripHistory/TripHistory";
 import DashboardLayout from "./DashboardLayout";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="notifications" element={<Notifications />} />
           <Route path="trip-history" element={<TripHistory />} />
         </Route>
       </Routes>
