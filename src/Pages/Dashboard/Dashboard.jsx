@@ -20,7 +20,7 @@ const Dashboard = () => {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-6 h-max">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-max">
           <div className="bg-[#F5F8FF] flex gap-2 justify-between p-4 rounded-md">
             <span className="flex gap-2 h-max my-auto">
               <img
