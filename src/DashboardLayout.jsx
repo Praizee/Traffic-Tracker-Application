@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 
 import { Layout, Menu, Button, Drawer, theme } from "antd";
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
@@ -230,21 +230,36 @@ const DashboardLayout = () => {
             } w-full`}
           >
             <div className="hidden lg:flex gap-8 flex-1">
-              <a className="duration-200 transition hover:font-medium hover:text-blue-600">
+              <Link
+                to=""
+                className="duration-200 transition hover:font-medium hover:text-blue-600"
+              >
                 Live Traffic
-              </a>
-              <a className="duration-200 transition hover:font-medium hover:text-blue-600">
+              </Link>
+              <Link
+                to="trip"
+                className="duration-200 transition hover:font-medium hover:text-blue-600"
+              >
                 Trip
-              </a>
-              <a className="duration-200 transition hover:font-medium hover:text-blue-600">
+              </Link>
+              <Link
+                to="reports"
+                className="duration-200 transition hover:font-medium hover:text-blue-600"
+              >
                 Reports
-              </a>
-              <a className="duration-200 transition hover:font-medium hover:text-blue-600">
+              </Link>
+              <Link
+                to="community"
+                className="duration-200 transition hover:font-medium hover:text-blue-600"
+              >
                 Community
-              </a>
-              <a className="duration-200 transition hover:font-medium hover:text-blue-600">
+              </Link>
+              <Link
+                to="emergency"
+                className="duration-200 transition hover:font-medium hover:text-blue-600"
+              >
                 Emergency
-              </a>
+              </Link>
             </div>
 
             <div className="flex gap-4 justify-between md:justify-normal lg:flex-none">
@@ -392,13 +407,13 @@ const DashboardLayout = () => {
                   className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
                 >
                   <li>
-                    <a className="text-base font-medium">Profile</a>
+                    <Link className="text-base font-medium">Profile</Link>
                   </li>
                   <li>
-                    <a className="text-base font-medium">Settings</a>
+                    <Link className="text-base font-medium">Settings</Link>
                   </li>
                   <li>
-                    <a className="text-base font-medium">Logout</a>
+                    <Link className="text-base font-medium">Logout</Link>
                   </li>
                 </ul>
               </div>
