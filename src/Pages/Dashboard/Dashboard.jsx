@@ -15,13 +15,27 @@ const Dashboard = () => {
       <div className="text-[#011750] max-w-screen-xl mx-auto grid lg:grid-cols-2 grid-cols-1 gap-8 md:gap-16">
         {/* LiveTraffic */}
         <div className="md:hidden block">
-          <img
-            src={LiveTraffic}
-            alt="Live Traffic"
-            // width={120}
-            // height={120}
-            className="w-full"
-          />
+          <div className="relative">
+            <span className="absolute top-0 text-[#011750] bg-[#F5F8FF]">
+              <button className="py-4 px-8 text-[14px] font-semibold w-max flex gap-1">
+                <TiLocationArrowOutline className="w-6 h-6" />
+                Live Traffic at Obalende
+              </button>
+            </span>
+            <img
+              src={LiveTraffic}
+              alt="Live Traffic"
+              // width={120}
+              // height={120}
+              className="w-full"
+            />
+            <span className="flex justify-center items-center mx-auto">
+              <button className="py-4 px-8 text-[14px] font-semibold w-max flex gap-3 rounded-md text-[#011750] bg-[#F5F8FF] absolute bottom-8 md:bottom-16">
+                <FaRegMap className="w-6 h-6" />
+                Satellite Map
+              </button>
+            </span>
+          </div>
         </div>
 
         <div className="flex flex-col gap-12">
