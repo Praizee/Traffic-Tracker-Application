@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import { Layout, Menu, Button, Drawer, theme } from "antd";
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
@@ -39,9 +39,12 @@ const DashboardLayout = () => {
         className="!bg-[#F5F8FF] hidden md:block !rounded-r-3xl !fixed !left-0 !h-full !z-[10000]"
       >
         <div className="py-6 flex flex-col gap-2">
-          <h2 className="text-[#011750] text-center font-bold text-[18px] mb-2">
+          <Link
+            to="/dashboard"
+            className="text-[#011750] text-center font-bold text-[18px] mb-2"
+          >
             Traffic Tracker
-          </h2>
+          </Link>
           <div
             className={`pb-2 flex flex-col px-4 ${
               collapsed ? "items-center" : "items-end"
@@ -123,7 +126,7 @@ const DashboardLayout = () => {
       </Sider>
 
       <Drawer
-        title="Traffic Tracker"
+        // title="Traffic Tracker"
         className="!bg-[#F5F8FF] !rounded-r-3xl md:hidden !p-0"
         placement="left"
         closable={false}
@@ -131,6 +134,14 @@ const DashboardLayout = () => {
         onClose={toggleDrawer}
         open={drawerVisible}
       >
+        <div className="pb-6 flex flex-col gap-2">
+          <Link
+            to="/dashboard"
+            className="text-[#011750] text-center font-bold text-[18px] mb-2"
+          >
+            Traffic Tracker
+          </Link>
+        </div>
         <Menu
           mode="vertical"
           className="!bg-[#F5F8FF]"
@@ -238,7 +249,7 @@ const DashboardLayout = () => {
 
             <div className="flex gap-4 justify-between md:justify-normal lg:flex-none">
               {/* notification */}
-              <div className="dropdown dropdown-end mt-1.5">
+              <div className="dropdown dropdown-right mt-1.5">
                 <div
                   tabIndex={0}
                   role="button"
@@ -271,13 +282,19 @@ const DashboardLayout = () => {
                   className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <p className="text-base font-medium">Notification 1</p>
+                    <Link to="notifications" className="text-base font-medium">
+                      Notification 1
+                    </Link>
                   </li>
                   <li>
-                    <p className="text-base font-medium">Notification 2</p>
+                    <Link to="notifications" className="text-base font-medium">
+                      Notification 2
+                    </Link>
                   </li>
                   <li>
-                    <p className="text-base font-medium">Notification 3</p>
+                    <Link to="notifications" className="text-base font-medium">
+                      Notification 3
+                    </Link>
                   </li>
                 </ul>
               </div>
