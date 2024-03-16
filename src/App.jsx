@@ -15,6 +15,8 @@ import ReportItem from "./Pages/Reports/ReportItem";
 import Emergency from "./Pages/Emergency/Emergency";
 import Community from "./Pages/Community/Community";
 import DashboardLayout from "./DashboardLayout";
+import ReportHappening from "./Pages/ReportHappening/ReportHappening";
+import FavoriteRoutes from "./Pages/FavoriteRoutes/FavoriteRoutes"
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="emergency" element={<Emergency />} />
           <Route path="trip-history" element={<TripHistory />} />
+          <Route path="report-happening" element= {<ReportHappening/>} />
+          <Route path="favorite-routes" element={<FavoriteRoutes />} />
         </Route>
       </Routes>
     </Router>
