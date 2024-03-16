@@ -9,6 +9,10 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Profile from "./Pages/Profile/Profile";
 import Notifications from "./Pages/Notifications/Notifications";
 import TripHistory from "./Pages/TripHistory/TripHistory";
+import Trip from "./Pages/Trip/Trip";
+import Reports from "./Pages/Reports/Reports";
+import Emergency from "./Pages/Emergency/Emergency";
+import Community from "./Pages/Community/Community";
 import DashboardLayout from "./DashboardLayout";
 
 function App() {
@@ -24,6 +28,10 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
           <Route path="notifications" element={<Notifications />} />
+          <Route path="trip" element={<Trip />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="community" element={<Community />} />
+          <Route path="emergency" element={<Emergency />} />
           <Route path="trip-history" element={<TripHistory />} />
         </Route>
       </Routes>
