@@ -31,7 +31,7 @@ function App() {
           <Route path="notifications" element={<Notifications />} />
           <Route path="trip" element={<Trip />} />
           <Route path="reports" element={<Reports />} />
-          <Route path="report-item" element={<ReportItem />} />
+          <Route path="reports/report-item" element={<ReportItem />} />
           <Route path="community" element={<Community />} />
           <Route path="emergency" element={<Emergency />} />
           <Route path="trip-history" element={<TripHistory />} />
