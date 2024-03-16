@@ -11,6 +11,7 @@ import Notifications from "./Pages/Notifications/Notifications";
 import TripHistory from "./Pages/TripHistory/TripHistory";
 import Trip from "./Pages/Trip/Trip";
 import Reports from "./Pages/Reports/Reports";
+import ReportItem from "./Pages/Reports/ReportItem";
 import Emergency from "./Pages/Emergency/Emergency";
 import Community from "./Pages/Community/Community";
 import DashboardLayout from "./DashboardLayout";
@@ -30,6 +31,7 @@ function App() {
           <Route path="notifications" element={<Notifications />} />
           <Route path="trip" element={<Trip />} />
           <Route path="reports" element={<Reports />} />
+          <Route path="report-item" element={<ReportItem />} />
           <Route path="community" element={<Community />} />
           <Route path="emergency" element={<Emergency />} />
           <Route path="trip-history" element={<TripHistory />} />
