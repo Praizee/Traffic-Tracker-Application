@@ -16,7 +16,10 @@ import Emergency from "./Pages/Emergency/Emergency";
 import Community from "./Pages/Community/Community";
 import DashboardLayout from "./DashboardLayout";
 import ReportHappening from "./Pages/ReportHappening/ReportHappening";
-import FavoriteRoutes from "./Pages/FavoriteRoutes/FavoriteRoutes"
+import FavoriteRoutes from "./Pages/FavoriteRoutes/FavoriteRoutes";
+import FeedBackAndRating from "./Pages/FeedBackAndRating/FeedBackAndRating";
+import Settings from "./Pages/Settings/Settings";
+import Invite from "./Pages/Invite/Invite";
 
 function App() {
   return (
@@ -37,8 +40,11 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="emergency" element={<Emergency />} />
           <Route path="trip-history" element={<TripHistory />} />
-          <Route path="report-happening" element= {<ReportHappening/>} />
+          <Route path="report-happening" element={<ReportHappening />} />
           <Route path="favorite-routes" element={<FavoriteRoutes />} />
+          <Route path="feedback-and-rating" element={<FeedBackAndRating />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="invite" element={<Invite />} />
         </Route>
       </Routes>
     </Router>
