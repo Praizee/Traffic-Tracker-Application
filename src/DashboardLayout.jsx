@@ -60,69 +60,67 @@ const DashboardLayout = () => {
           mode="inline"
           className="!bg-[#F5F8FF] "
           //   !w-max
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <FaUserLarge className="w-5 h-5 mr-1" />,
-              label: "Profile",
-              //   title: "Profile",
-            },
-            {
-              key: "2",
-              icon: <MdOutlineHistory className="w-5 h-5 mr-1" />,
-              label: "Trip History",
-              //   title: "Trip History",
-            },
-            {
-              key: "3",
-              icon: <RiRouteFill className="w-5 h-5 mr-1" />,
-              label: "Favorite Routes",
-              //   title: "Favorite Routes",
-            },
-            {
-              key: "4",
-              icon: <PiWarningOctagonFill className="w-5 h-5 mr-1" />,
-              label: "Report Happening",
-              //   title: "Report Happening",
-            },
-            {
-              key: "5",
-              icon: <MdFeedback className="w-5 h-5 mr-1" />,
-              label: "Feedback & Rating",
-              //   title: "Feedback & Rating",
-            },
+          // defaultSelectedKeys={["1"]}
+          >
+           <Menu.Item key="1" icon={<FaUserLarge className="w-5 h-5 mr-1" />}>
+            <Link to="/profile">Profile</Link>
+          </Menu.Item>
+          
+          <Menu.Item
+            key="2"
+            icon={<MdOutlineHistory className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/trip-history">Trip History</Link>
+          </Menu.Item>
 
-            {
-              key: "",
-              icon: "",
-              label: "",
-            },
-            {
-              key: "",
-              icon: "",
-              label: "",
-            },
-            {
-              key: "6",
-              icon: <IoSettingsSharp className="w-5 h-5 mr-1" />,
-              label: "Settings",
-              //   title: "Settings",
-            },
-            {
-              key: "7",
-              icon: <IoShareSocialOutline className="w-5 h-5 mr-1" />,
-              label: "Invite",
-              //   title: "Invite",
-            },
-            {
-              key: "8",
-              icon: <LuLogOut className="w-5 h-5 mr-1" />,
-              label: "Logout",
-              //   title: "Logout",
-            },
-          ]}
-        />
+          <Menu.Item
+            key="3"
+            icon={<RiRouteFill className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/favorite-routes">Favorite Routes</Link>
+          </Menu.Item>
+          
+          <Menu.Item
+            key="4"
+            icon={<PiWarningOctagonFill className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/report-happening">Report Happening</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key="5"
+            icon={<MdFeedback className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/feedback-and-rating">Feedback & Rating</Link>
+          </Menu.Item>
+
+          
+{/*            */}
+           <Menu.Item disabled={true} style={{ padding: 0 }} />
+  <Menu.Item disabled={true} style={{ padding: 0 }} />
+{/*            */}
+
+<Menu.Item
+            key="6"
+            icon={<IoSettingsSharp className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/settings">Settings</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key="7"
+            icon={<IoShareSocialOutline className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/invite">Invite</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key="8"
+            icon={<LuLogOut className="w-5 h-5 mr-1" />}
+          >
+            <Link to="/">Logout</Link>
+          </Menu.Item>
+                                 </Menu>
       </Sider>
 
       <Drawer
