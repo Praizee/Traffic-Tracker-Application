@@ -145,6 +145,9 @@ const ReportItem = () => {
               ahead, and cooperate with authorities to make this transition as
               smooth as possible for everyone affected.
             </p>
+            <span className="text-[14px] font-semibold text-[#011750] pb-2 border-b border-[#D49921] pt-6">
+              SOURCE; TRAFFIC TRACKER
+            </span>
           </div>
         </div>
 
