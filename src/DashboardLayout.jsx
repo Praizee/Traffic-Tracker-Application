@@ -406,13 +406,13 @@ const DashboardLayout = () => {
                   className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
                 >
                   <li>
-                    <Link className="text-base font-medium">Profile</Link>
+                    <Link to="profile" className="text-base font-medium">Profile</Link>
                   </li>
                   <li>
-                    <Link className="text-base font-medium">Settings</Link>
+                    <Link to="settings" className="text-base font-medium">Settings</Link>
                   </li>
                   <li>
-                    <Link className="text-base font-medium">Logout</Link>
+                    <Link to="/" className="text-base font-medium">Logout</Link>
                   </li>
                 </ul>
               </div>
