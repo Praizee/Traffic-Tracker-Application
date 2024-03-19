@@ -1,8 +1,10 @@
 import React from "react";
 import Typing from "../../assets/bro.png";
 import Frontcar from "../../assets/cuate.png";
-import { FaLongArrowAltRight, FaFacebookF } from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
+import {FaLongArrowAltRight} from "react-icons/fa"
+import FacebookIcon from '../../assets/devicon_facebook.png';
+import WhatsappIcon from "../../assets/logos_whatsapp-icon.png";
+import TwitterIcon from "../../assets/ri_twitter-x-line.png";
 
 
 const Invite = () => {
@@ -21,11 +23,11 @@ const Invite = () => {
           <span>
             <img
               src={Typing}
-              alt=""
+              alt="Typing Illustration"
               className="bg-[#E6E8EE80] rounded-full pt-12 px-2"
             />
           </span>
-          <span className="text-[#011750]">
+          <span className="text-[#011750] ">
             <FaLongArrowAltRight />
           </span>
           <span>
@@ -42,18 +44,20 @@ const Invite = () => {
             Copy Link
           </div>
         </div>
-        <div className=" w-40 mx-auto">
+        <div className=" w-44 mx-auto">
           <p className="text-[12px] md:text-lg mb-4 text-[#011750]">
             Share by using;
           </p>
           <div className="flex justify-between">
-            <span className="bg-[#F2F3F6] px-2 rounded-md">
-              <FaFacebookF />
+            <span className="bg-[#F2F3F6] p-2 rounded-md">
+              <img src={FacebookIcon} alt="" />
             </span>
-            <span className="bg-[#F2F3F6] px-2 rounded-md">
-              <BsTwitterX />
+            <span className="bg-[#F2F3F6] p-2 rounded-md">
+              <img src={TwitterIcon} alt="" />
             </span>
-            <span className="bg-[#F2F3F6] px-2 rounded-md">W</span>
+            <span className="bg-[#F2F3F6] p-2 rounded-md">
+              <img src={WhatsappIcon} alt="" />
+            </span>
           </div>
         </div>
       </div>
