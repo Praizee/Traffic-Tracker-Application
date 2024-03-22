@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { BsFillShieldLockFill } from "react-icons/bs";
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 
 const Settings = () => {
   return (
@@ -20,7 +22,9 @@ const Settings = () => {
               </span>
               <p>Change Password</p>
             </span>
-            <span>icon</span>
+            <span>
+              <MdKeyboardArrowRight />
+            </span>
           </Link>
           <Link
             to="/dashboard/settings/delete-account"
