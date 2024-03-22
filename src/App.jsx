@@ -20,6 +20,8 @@ import FavoriteRoutes from "./Pages/FavoriteRoutes/FavoriteRoutes";
 import FeedBackAndRating from "./Pages/FeedBackAndRating/FeedBackAndRating";
 import Settings from "./Pages/Settings/Settings";
 import Invite from "./Pages/Invite/Invite";
+import PasswordChange from "./Pages/Settings/PasswordChange";
+import DeleteAccount from "./Pages/Settings/DeleteAccount";
 
 function App() {
   return (
@@ -45,6 +47,9 @@ function App() {
           <Route path="feedback-and-rating" element={<FeedBackAndRating />} />
           <Route path="settings" element={<Settings />} />
           <Route path="invite" element={<Invite />} />
+          <Route path="/dashboard/settings/change-password" element={<PasswordChange />} />
+          <Route path="/dashboard/settings/delete-account" element={<DeleteAccount />} />
+
         </Route>
       </Routes>
     </Router>

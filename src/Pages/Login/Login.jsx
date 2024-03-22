@@ -6,7 +6,7 @@ const Login = () => {
 
   return (
     // <main className="w-full lg:px-12 md:px-5 md:pt-10 pt-16 px-4 bg-hero-bg bg-cover bg-center min-h-screen flex flex-col items-center justify-center sm:px-4">
-        <main className="w-full lg:px-12 md:px-5 md:pt-10 pt-16 px-4 bg-[url(https://res.cloudinary.com/stephen1407/image/upload/v1710101299/hero-bg_wpnnsm.png)] bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center sm:px-4">
+    <main className="w-full lg:px-12 md:px-5 md:pt-10 pt-16 px-4 bg-[url(https://res.cloudinary.com/stephen1407/image/upload/v1710101299/hero-bg_wpnnsm.png)] bg-cover bg-center bg-no-repeat min-h-screen flex flex-col items-center justify-center sm:px-4">
       <div className="w-full space-y-6 text-[#67749680] sm:max-w-md">
         <div className="">
           <div className="mt-5 space-y-2">
