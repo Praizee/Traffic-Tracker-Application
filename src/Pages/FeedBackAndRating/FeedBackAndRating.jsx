@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+import { Rate } from "antd";
 
 const FeedBackAndRating = () => {
   return (
@@ -19,22 +20,8 @@ const FeedBackAndRating = () => {
                 Please take a moment to evaluate and tell Us what you think.
               </p>
 
-              <div className="hidden lg:flex gap-1 text-[#4D5D8533]/20">
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
-                <span>
-                  <FaStar />
-                </span>
+              <div className="flex justify-center sm:justify-normal gap-1 text-[#4D5D8533]/20">
+                <Rate allowHalf defaultValue={3.5} className="text-[#D49921]" />
               </div>
             </div>
 
@@ -45,23 +32,8 @@ const FeedBackAndRating = () => {
                   <h2 className="text-[#4D5D85] font-semibold">
                     General User Rating
                   </h2>
-                  <span className="flex gap-2 text-[#D49921]">
-                    <span>
-                      <FaStar />
-                    </span>
-                    <span>
-                      <FaStar />
-                    </span>
-                    <span>
-                      <FaStar />
-                    </span>
-                    <span>
-                      <FaStar />
-                    </span>
-                    <span className="text-[#4D5D8533]/20">
-                      <FaStar />
-                    </span>
-                  </span>
+                  <Rate disabled defaultValue={4} className="text-[#D49921]" />
+
                   <p className=" text-[12px]">
                     <p className="text-[#4D5D85] text-[12px] mr-2">4.0</p>
                     (27 Reviews)
@@ -119,7 +91,7 @@ const FeedBackAndRating = () => {
 
               {/* User Review */}
 
-              <div className="bg-[#F4F5F7] rounded-md p-4 my-6">
+              <div className="bg-[#F4F5F7] rounded-md p-4 my-6 flex flex-col gap-2">
                 <p className="text-[12px]">
                   added by{" "}
                   <span className="text-[#4D5D85] text-[12px]">Dele Akin</span>{" "}
@@ -127,23 +99,7 @@ const FeedBackAndRating = () => {
                 </p>
                 <p className="text-[#4D5D85]">Satisfactory</p>
                 <div className="flex gap-4">
-                  <span className="flex gap-2 text-[#D49921]">
-                    <div>
-                      <FaStar />
-                    </div>
-                    <div>
-                      <FaStar />
-                    </div>
-                    <div>
-                      <FaStar />
-                    </div>
-                    <div>
-                      <FaStar />
-                    </div>
-                    <div className="text-[#4D5D8533]/20">
-                      <FaStar />
-                    </div>
-                  </span>
+                  <Rate disabled defaultValue={4} className="text-[#D49921]" />
                   <p className="text-[#4D5D85]">4 Stars</p>
                 </div>
                 <p>
@@ -159,7 +115,6 @@ const FeedBackAndRating = () => {
             </div>
 
             {/* Review Options */}
-
             <span className="flex flex-col gap-2  border-t border-[#84848499]/60 pt-4 md:border-0">
               <p className="text-base text-[#4D5D85] font-semibold">
                 Tell Us what can be improved
@@ -212,6 +167,7 @@ const FeedBackAndRating = () => {
                 <input
                   type="text"
                   placeholder="review title"
+                  required
                   className="w-full border-[0.5px] border-[#011750] rounded-md mb-6 py-3 pl-4 outline-none"
                 />
               </span>
@@ -223,39 +179,27 @@ const FeedBackAndRating = () => {
                   cols="30"
                   rows="7"
                   placeholder="type in your review here..."
+                  required
                   className="w-full rounded-md border-[0.5px] mb-6 border-[#011750] py-3 pl-4 outline-none"
                 ></textarea>
               </span>
-              <button className="w-full bg-[#002A97] text-white py-2 pl-4 rounded-md">
+              <button
+                type="submit"
+                className="w-full bg-[#002A97] text-white py-2 pl-4 rounded-md"
+              >
                 Submit My feedback
               </button>
             </div>
           </div>
 
           {/* General user rating desktop view */}
-          <div className="hidden lg:flex lg:flex-col border-l border-[#4D5D85] pl-4 ">
+          <div className="hidden max-w-[25rem] lg:flex lg:flex-col border-l border-[#4D5D85] pl-4 ">
             <div className="flex justify-between">
               <span className="space-y-2">
                 <h2 className="text-[#4D5D85] font-semibold">
                   General User Rating
                 </h2>
-                <span className="flex gap-2 text-[#D49921]">
-                  <span>
-                    <FaStar />
-                  </span>
-                  <span>
-                    <FaStar />
-                  </span>
-                  <span>
-                    <FaStar />
-                  </span>
-                  <span>
-                    <FaStar />
-                  </span>
-                  <span className="text-[#4D5D8533]/20">
-                    <FaStar />
-                  </span>
-                </span>
+                <Rate disabled defaultValue={4} className="text-[#D49921]" />
                 <p className=" text-[12px]">
                   <span className="text-[#4D5D85] text-[12px] mr-2">4.0</span>
                   (27 Reviews)
@@ -327,7 +271,7 @@ const FeedBackAndRating = () => {
                   src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                 />
               </div>
-              <div>
+              <div className="flex flex-col gap-2">
                 <p className="text-[12px]">
                   added by{" "}
                   <span className="text-[#4D5D85] text-[12px]">Dele Akin</span>{" "}
@@ -335,23 +279,7 @@ const FeedBackAndRating = () => {
                 </p>
                 <p className="text-[#4D5D85]">Satisfactory</p>
                 <div className="flex gap-4">
-                  <span className="flex gap-2">
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#4D5D8533]/20">
-                      <FaStar />
-                    </div>
-                  </span>
+                  <Rate disabled defaultValue={4} className="text-[#D49921]" />
                   <p className="text-[#4D5D85]">4 Stars</p>
                 </div>
                 <p>
@@ -372,7 +300,7 @@ const FeedBackAndRating = () => {
                   src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                 />
               </div>
-              <div>
+              <div className="flex flex-col gap-2">
                 <p className="text-[12px]">
                   added by{" "}
                   <span className="text-[#4D5D85] text-[12px]">Boba Jude</span>{" "}
@@ -380,23 +308,7 @@ const FeedBackAndRating = () => {
                 </p>
                 <p className="text-[#4D5D85]">User friendly</p>
                 <div className="flex gap-4">
-                  <span className="flex gap-2">
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#D49921]">
-                      <FaStar />
-                    </div>
-                    <div className="text-[#4D5D8533]/20">
-                      <FaStar />
-                    </div>
-                  </span>
+                  <Rate disabled defaultValue={4} className="text-[#D49921]" />
                   <p className="text-[#4D5D85]">4 Stars</p>
                 </div>
                 <p>
@@ -409,7 +321,10 @@ const FeedBackAndRating = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <button className=" bg-transparent text-[#4D5D85] border border-[#4D5D85] rounded-3xl py-2 px-4 pl-4">
+              <button
+                type="button"
+                className=" bg-transparent text-[#4D5D85] border border-[#4D5D85] rounded-3xl py-2 px-4 pl-4"
+              >
                 Load more reviews
               </button>
             </div>
