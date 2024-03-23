@@ -1,5 +1,6 @@
 import React from "react";
 import Warning from "../../assets/warning.png";
+import { Link } from "react-router-dom";
 
 const DeleteAccount = () => {
   return (
@@ -20,12 +21,18 @@ const DeleteAccount = () => {
           </span>
         </div>
         <div className="md:flex items-center gap-4">
-          <div className="p-3 px-8 bg-white rounded-md border-[0.5px] border-[#848484] mb-4 md:mb-0 md:font-semibold">
+          <Link
+            to="/dashboard/settings"
+            className="p-3 px-8 bg-white rounded-md border-[0.5px] border-[#848484] mb-4 md:mb-0 md:font-semibold"
+          >
             Cancel
-          </div>
-          <div className="bg-[#EB5757] text-white p-3 rounded-md border-[0.5px] border-[#848484] md:font-semibold">
+          </Link>
+          <button
+            type="button"
+            className="btn bg-[#EB5757] text-white hover:text-[#EB5757] p-3 rounded-md border-[0.5px] border-[#848484] md:font-semibold"
+          >
             Delete Account
-          </div>
+          </button>
         </div>
       </div>
     </section>

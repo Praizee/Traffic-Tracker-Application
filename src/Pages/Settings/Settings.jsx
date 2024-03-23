@@ -4,7 +4,6 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-
 const Settings = () => {
   return (
     <section className="md:p-8 p-4">
@@ -13,7 +12,7 @@ const Settings = () => {
         <h2 className="font-semibold text-xl md:text-3xl mb-4">Settings</h2>
         <div className="space-y-4 md:space-y-6">
           <Link
-            to="/dashboard/settings/change-password"
+            to="change-password"
             className="flex items-center justify-between border-b border-[#B3B9CB] pb-2 text-[#B3B9CB] text-sm"
           >
             <span className="flex items-center gap-2">
@@ -27,7 +26,7 @@ const Settings = () => {
             </span>
           </Link>
           <Link
-            to="/dashboard/settings/delete-account"
+            to="delete-account"
             className="flex items-center gap-2 text-[#EB5757] text-sm"
           >
             <span>

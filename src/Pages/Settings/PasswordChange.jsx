@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PasswordChange = () => {
   const [isPasswordHidden, setPasswordHidden] = useState(true);
@@ -14,8 +15,9 @@ const PasswordChange = () => {
           <div>
             <label className="sr-only">Current Password</label>
             <input
-              type="text"
+              type="password"
               placeholder="Current Password"
+              required
               className="w-full pl-3 py-4 bg-white text-[#67749680]/50 outline-none border border-[#848484] focus:border-indigo-600 shadow-sm rounded-md text-sm"
             />
           </div>
@@ -69,6 +71,7 @@ const PasswordChange = () => {
               <input
                 type={isPasswordHidden ? "password" : "text"}
                 placeholder="New Password"
+                required
                 className="w-full pl-3 py-4 bg-white text-[#67749680]/50 outline-none border border-[#848484] focus:border-indigo-600 shadow-sm rounded-md text-sm"
               />
             </div>
@@ -125,18 +128,25 @@ const PasswordChange = () => {
               <input
                 type={isConfirmPasswordHidden ? "password" : "text"}
                 placeholder="Re enter New Password"
+                required
                 className="w-full pl-3 py-4 bg-white text-[#67749680]/50 outline-none border border-[#848484] focus:border-indigo-600 shadow-sm rounded-md text-sm"
               />
             </div>
           </div>
           {/* Cancel and Set New Password buttons */}
           <div className="mt-4 font-semibold gap-4 md:flex">
-            <div className="text-[#011750] p-3 bg-[#4D5D851A]/10 md:bg-white mr-4">
+            <Link
+              to="/dashboard/settings"
+              className="text-[#011750] p-3 bg-[#4D5D851A]/10 md:bg-white mr-4"
+            >
               Cancel
-            </div>
-            <div className="text-white p-3 bg-[#002A97] rounded-md">
+            </Link>
+            <button
+              type="submit"
+              className="text-white p-3 bg-[#002A97] rounded-md"
+            >
               Set New Password
-            </div>
+            </button>
           </div>
         </form>
       </div>
