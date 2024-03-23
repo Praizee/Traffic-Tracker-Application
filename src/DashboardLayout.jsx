@@ -61,67 +61,57 @@ const DashboardLayout = () => {
           className="!bg-[#F5F8FF] "
           //   !w-max
           // defaultSelectedKeys={["1"]}
-          >
-           <Menu.Item key="1" icon={<FaUserLarge className="w-5 h-5 mr-1" />}>
+        >
+          <Menu.Item key="1" icon={<FaUserLarge className="w-4 h-4" />}>
             <Link to="profile">Profile</Link>
           </Menu.Item>
-          
+
           <Menu.Item
             key="2"
-            icon={<MdOutlineHistory className="w-5 h-5 mr-1" />}
+            icon={<MdOutlineHistory className="w-4 h-4 mr-1" />}
           >
             <Link to="trip-history">Trip History</Link>
           </Menu.Item>
 
-          <Menu.Item
-            key="3"
-            icon={<RiRouteFill className="w-5 h-5 mr-1" />}
-          >
+          <Menu.Item key="3" icon={<RiRouteFill className="w-4 h-4" />}>
             <Link to="favorite-routes">Favorite Routes</Link>
           </Menu.Item>
-          
+
           <Menu.Item
             key="4"
-            icon={<PiWarningOctagonFill className="w-5 h-5 mr-1" />}
+            icon={<PiWarningOctagonFill className="w-4 h-4 mr-1" />}
           >
             <Link to="report-happening">Report Happening</Link>
           </Menu.Item>
 
-          <Menu.Item
-            key="5"
-            icon={<MdFeedback className="w-5 h-5 mr-1" />}
-          >
+          <Menu.Item key="5" icon={<MdFeedback className="w-4 h-4" />}>
             <Link to="feedback-and-rating">Feedback & Rating</Link>
           </Menu.Item>
 
-          
-{/*            */}
-           <Menu.Item disabled={true} style={{ padding: 0 }} />
-  <Menu.Item disabled={true} style={{ padding: 0 }} />
-  <Menu.Item disabled={true} style={{ padding: 0 }} />
-{/*            */}
+          {/*            */}
+          <Menu.Item disabled={true} style={{ padding: 0 }} />
+          <Menu.Item disabled={true} style={{ padding: 0 }} />
+          <Menu.Item disabled={true} style={{ padding: 0 }} />
+          {/*            */}
 
-<Menu.Item
+          <Menu.Item
             key="6"
-            icon={<IoSettingsSharp className="w-5 h-5 mr-1" />}
+            icon={<IoSettingsSharp className="w-4 h-4 mr-1" />}
           >
             <Link to="settings">Settings</Link>
           </Menu.Item>
 
           <Menu.Item
             key="7"
-            icon={<IoShareSocialOutline className="w-5 h-5 mr-1" />}
+            icon={<IoShareSocialOutline className="w-4 h-4 mr-1" />}
           >
             <Link to="invite">Invite</Link>
           </Menu.Item>
 
-          <Menu.Item
-            key="8"
-            icon={<LuLogOut className="w-5 h-5 mr-1" />}
-          >
+          <Menu.Item key="8" icon={<LuLogOut className="w-4 h-4" />}>
             <Link to="/">Logout</Link>
           </Menu.Item>
-                                 </Menu>
+        </Menu>
       </Sider>
 
       <Drawer
@@ -133,7 +123,7 @@ const DashboardLayout = () => {
         onClose={toggleDrawer}
         open={drawerVisible}
       >
-        <div className="pb-6 flex flex-col gap-2">
+        <div className="pb-4 flex flex-col gap-2">
           <Link
             to="/dashboard"
             className="text-[#011750] text-center font-bold text-[18px] mb-2"
@@ -144,68 +134,70 @@ const DashboardLayout = () => {
         <Menu
           mode="vertical"
           className="!bg-[#F5F8FF]"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <FaUserLarge className="w-5 h-5 mr-1" />,
-              label: "Profile",
-              title: "Profile",
-            },
-            {
-              key: "2",
-              icon: <MdOutlineHistory className="w-5 h-5 mr-1" />,
-              label: "Trip History",
-              title: "Trip History",
-            },
-            {
-              key: "3",
-              icon: <RiRouteFill className="w-5 h-5 mr-1" />,
-              label: "Favorite Routes",
-              title: "Favorite Routes",
-            },
-            {
-              key: "4",
-              icon: <PiWarningOctagonFill className="w-5 h-5 mr-1" />,
-              label: "Report Happening",
-              title: "Report Happening",
-            },
-            {
-              key: "5",
-              icon: <MdFeedback className="w-5 h-5 mr-1" />,
-              label: "Feedback & Rating",
-              title: "Feedback & Rating",
-            },
-            {
-              key: "",
-              icon: "",
-              label: "",
-            },
-            {
-              key: "",
-              icon: "",
-              label: "",
-            },
-            {
-              key: "6",
-              icon: <IoSettingsSharp className="w-5 h-5 mr-1" />,
-              label: "Settings",
-              title: "Settings",
-            },
-            {
-              key: "7",
-              icon: <IoShareSocialOutline className="w-5 h-5 mr-1" />,
-              label: "Invite",
-              title: "Invite",
-            },
-            {
-              key: "8",
-              icon: <LuLogOut className="w-5 h-5 mr-1" />,
-              label: "Logout",
-              title: "Logout",
-            },
-          ]}
-        />
+          // defaultSelectedKeys={["1"]}
+        >
+          <Menu.Item key="1">
+            <Link to="">Live Traffic</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="trip">Trip</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="reports">Reports</Link>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <Link to="community">Community</Link>
+          </Menu.Item>
+          <Menu.Item key="5">
+            <Link to="emergency">Emergency</Link>
+          </Menu.Item>
+
+          <Menu.Item disabled={true} style={{ padding: 0 }} />
+
+          <Menu.Item key="6" icon={<FaUserLarge className="w-4 h-4" />}>
+            <Link to="profile">Profile</Link>
+          </Menu.Item>
+
+          <Menu.Item key="7" icon={<MdOutlineHistory className="w-4 h-4" />}>
+            <Link to="trip-history">Trip History</Link>
+          </Menu.Item>
+
+          <Menu.Item key="8" icon={<RiRouteFill className="w-4 h-4" />}>
+            <Link to="favorite-routes">Favorite Routes</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key="9"
+            icon={<PiWarningOctagonFill className="w-4 h-4 mr-1" />}
+          >
+            <Link to="report-happening">Report Happening</Link>
+          </Menu.Item>
+
+          <Menu.Item key="10" icon={<MdFeedback className="w-4 h-4" />}>
+            <Link to="feedback-and-rating">Feedback & Rating</Link>
+          </Menu.Item>
+
+          {/* <Menu.Item disabled={true} style={{ padding: 0 }} />
+          <Menu.Item disabled={true} style={{ padding: 0 }} /> */}
+
+          <Menu.Item
+            key="11"
+            icon={<IoSettingsSharp className="w-4 h-4 mr-1" />}
+          >
+            <Link to="settings">Settings</Link>
+          </Menu.Item>
+
+          <Menu.Item
+            key="12"
+            icon={<IoShareSocialOutline className="w-4 h-4 mr-1" />}
+          >
+            <Link to="invite">Invite</Link>
+          </Menu.Item>
+
+          <Menu.Item key="13" icon={<LuLogOut className="w-4 h-4" />}>
+            <Link to="/">Logout</Link>
+          </Menu.Item>
+        </Menu>
       </Drawer>
 
       <Layout className={collapsed ? "md:ml-[80px]" : "md:ml-[200px]"}>
@@ -406,13 +398,19 @@ const DashboardLayout = () => {
                   className="mt-1 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-32"
                 >
                   <li>
-                    <Link to="profile" className="text-base font-medium">Profile</Link>
+                    <Link to="profile" className="text-base font-medium">
+                      Profile
+                    </Link>
                   </li>
                   <li>
-                    <Link to="settings" className="text-base font-medium">Settings</Link>
+                    <Link to="settings" className="text-base font-medium">
+                      Settings
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/" className="text-base font-medium">Logout</Link>
+                    <Link to="/" className="text-base font-medium">
+                      Logout
+                    </Link>
                   </li>
                 </ul>
               </div>
