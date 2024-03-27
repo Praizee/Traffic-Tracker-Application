@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { MdEdit, MdCampaign } from "react-icons/md";
 import { IoMdThumbsUp, IoMdSend } from "react-icons/io";
@@ -9,41 +8,60 @@ const Community = () => {
     <section className="md:p-8 p-4">
       <div className="max-w-screen-lg mx-auto">
         <h2 className="font-semibold text-3xl">Community</h2>
-        <div className="text-[#01175059] mx-auto grid lg:grid-cols-[55%_45%] grid-cols-1 gap-6 md:gap-12 mt-8">
+        <div className="text-[#01175059] mx-auto grid lg:grid-cols-[55%_45%] grid-cols-1 gap-6 md:gap-12 mt-6">
           <div>
-            <div className="avatar-group -space-x-5 lg:hidden">
-              <div className="avatar online bg-transparent ">
-                <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
-              </div>
+            {/* Community Users avatar */}
+            <div className=" -space-x-3 rtl:space-x-reverse lg:hidden flex py-4">
               <div className="avatar online">
                 <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
                 </div>
               </div>
               <div className="avatar">
                 <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
+                </div>
+              </div>
+              <div className="avatar">
+                <div className="w-12">
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
                 </div>
               </div>
               <div className="avatar online">
                 <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
                 </div>
               </div>
               <div className="avatar ">
                 <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
                 </div>
               </div>
               <div className="avatar online">
                 <div className="w-12">
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    className="rounded-full"
+                  />
                 </div>
               </div>
               <div className="avatar placeholder">
-                <div className="w-12 bg-[#8484841A]/10 text-[#4D5D85]">
+                <div className="w-12 bg-[#8484841A]/10 text-[#4D5D85] rounded-full">
                   <span>34+</span>
                 </div>
               </div>
@@ -53,7 +71,7 @@ const Community = () => {
               <span className="text-[#EB5757] bg-trasparent rounded-md">
                 <MdCampaign className="w-8 h-8" />
               </span>
-              <p className="text-[#011750] border border-[#0117501A]/10 text-center">
+              <p className="text-[#011750] border border-[#0117501A]/10 text-center p-3">
                 Who knows what's happening at Maryland/Ikeja Axis???
               </p>
               <span className="text-[#011750] bg-[#0117501A]/10 rounded-md">
@@ -61,6 +79,7 @@ const Community = () => {
               </span>
             </div>
 
+            {/* Comments */}
             <div>
               <p className="text-[#27AE60] border-b py-6">
                 Questions and comments
@@ -73,7 +92,7 @@ const Community = () => {
                       className="rounded-full"
                     />
                   </div>
-                  <div className="border-b pb-6 border-[#848484] text-[#848484] max-w-[300px]">
+                  <div className="border-b pb-6 border-[#848484] text-[#848484] w-[300px]">
                     <span className="flex gap-3">
                       <h3 className="text-[#011750] font-semibold">
                         Tade Igninola
@@ -106,7 +125,7 @@ const Community = () => {
                       className="rounded-full"
                     />
                   </div>
-                  <div className="border-b pb-6 border-[#848484] text-[#848484] max-w-[300px]">
+                  <div className="border-b pb-6 border-[#848484] text-[#848484] w-[300px]">
                     <span className="flex gap-3">
                       <h3 className="text-[#011750] font-semibold">
                         Tolu Ijoko
@@ -137,7 +156,7 @@ const Community = () => {
                       className="rounded-full "
                     />
                   </div>
-                  <div className="border-b pb-6 border-[#848484] text-[#848484] max-w-[300px]">
+                  <div className="border-b pb-6 border-[#848484] text-[#848484] w-[300px]">
                     <span className="flex gap-3">
                       <h3 className="text-[#011750] font-semibold">
                         Tunde Monday
@@ -164,7 +183,7 @@ const Community = () => {
                       className="rounded-full "
                     />
                   </div>
-                  <div className="border-b pb-6 border-[#848484] text-[#848484] max-w-[300px]">
+                  <div className="border-b pb-6 border-[#848484] text-[#848484] w-[300px]">
                     <span className="flex gap-3">
                       <h3 className="text-[#011750] font-semibold">Me</h3>
                       <p>Now</p>
@@ -189,7 +208,7 @@ const Community = () => {
                       className="rounded-full "
                     />
                   </div>
-                  <div className="border-b pb-6 border-[#848484] text-[#848484] max-w-[300px]">
+                  <div className="border-b pb-6 border-[#848484] text-[#848484] w-[300px]">
                     <span className="flex gap-3">
                       <h3 className="text-[#011750] font-semibold">
                         Tade Igninola
@@ -213,6 +232,7 @@ const Community = () => {
                 </div>
               </div>
 
+              {/* Comment Button */}
               <div>
                 <label className="sr-only">Write a comment</label>
                 <div className="relative mt-6">
@@ -233,6 +253,7 @@ const Community = () => {
             </div>
           </div>
 
+          {/* Participants */}
           <div className="hidden max-w-[25rem] lg:flex lg:flex-col pl-4 ">
             <h2 className="text-[#011750] font-semibold inline-flex mr-2">
               Participants <p className="text-[#27AE60]">34+</p>
