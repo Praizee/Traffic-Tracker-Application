@@ -1,20 +1,49 @@
+import { useEffect, useState } from "react";
 import { FaChevronUp } from "react-icons/fa6";
 
 const ScrollToTop = () => {
-    return (
-        <div className="h-full">
-            <div className="absolute end-4 bottom-4 tablet:end-6 tablet:bottom-6 laptop:end-8 laptop:bottom-8">
-                <a
-                    className="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition cursor-pointer hover:bg-teal-500 tablet:p-3 laptop:p-4"
-                >
-                    <span className="sr-only">Back to top</span>
+  const [isVisible, setIsVisible] = useState(false);
 
-                    <FaChevronUp className="h-5 w-5" />
-                </a>
-            </div>
+  // Function to handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
-        </div>
-    )
-}
+  // listen for scroll events
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-export default ScrollToTop
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Function to scroll to the top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="fixed right-4 bottom-4 tablet:right-6 tablet:bottom-6 laptop:right-8 laptop:bottom-8">
+      {isVisible && (
+        <a
+          className="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition cursor-pointer hover:bg-teal-500 tablet:p-3 laptop:p-4"
+          onClick={scrollToTop}
+        >
+          <span className="sr-only">Back to top</span>
+          <FaChevronUp className="h-5 w-5" />
+        </a>
+      )}
+    </div>
+  );
+};
+
+export default ScrollToTop;
