@@ -1,3 +1,16 @@
+// import React from "react";
+// import Dashboard from "../Dashboard/Dashboard";
+
+// const HomePage = () => {
+//   return (
+//     <section>
+//       <Dashboard />
+//     </section>
+//   );
+// };
+
+// export default HomePage;
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
