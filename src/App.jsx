@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Layout from "./Layout";
+import HomeLayout from "./HomeLayout";
 import "./App.css";
 import HomePage from "./Pages/Home/Home";
 import Signup from "./Pages/Signup/Signup";
@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<HomeLayout />}>
           <Route index element={<HomePage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
@@ -47,9 +47,14 @@ function App() {
           <Route path="feedback-and-rating" element={<FeedBackAndRating />} />
           <Route path="settings" element={<Settings />} />
           <Route path="invite" element={<Invite />} />
-          <Route path="/dashboard/settings/change-password" element={<PasswordChange />} />
-          <Route path="/dashboard/settings/delete-account" element={<DeleteAccount />} />
-
+          <Route
+            path="/dashboard/settings/change-password"
+            element={<PasswordChange />}
+          />
+          <Route
+            path="/dashboard/settings/delete-account"
+            element={<DeleteAccount />}
+          />
         </Route>
       </Routes>
     </Router>
