@@ -119,14 +119,14 @@ const DashboardLayout = () => {
         className="!bg-[#F5F8FF] !rounded-r-3xl md:hidden !p-0"
         placement="left"
         closable={false}
-        width={200}
+        width={270}
         onClose={toggleDrawer}
         open={drawerVisible}
       >
         <div className="pb-4 flex flex-col gap-2">
           <Link
             to="/dashboard"
-            className="text-[#011750] text-center font-bold text-[18px] mb-2"
+            className="text-[#011750] pl-4 font-bold text-[18px] mb-2"
           >
             Traffic Tracker
           </Link>
@@ -134,7 +134,7 @@ const DashboardLayout = () => {
         <Menu
           mode="vertical"
           className="!bg-[#F5F8FF]"
-          // defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["1"]}
         >
           <Menu.Item key="1">
             <Link to="">Live Traffic</Link>
@@ -152,7 +152,8 @@ const DashboardLayout = () => {
             <Link to="emergency">Emergency</Link>
           </Menu.Item>
 
-          <Menu.Item disabled={true} style={{ padding: 0 }} />
+          {/* <Menu.Item disabled={true} style={{ padding: 0 }} /> */}
+          <div className="pb-3 border-b mx-4 border-[#848484]" />
 
           <Menu.Item key="6" icon={<FaUserLarge className="w-4 h-4" />}>
             <Link to="profile">Profile</Link>
@@ -179,6 +180,7 @@ const DashboardLayout = () => {
 
           {/* <Menu.Item disabled={true} style={{ padding: 0 }} />
           <Menu.Item disabled={true} style={{ padding: 0 }} /> */}
+          <div className="pb-3 border-b mx-4 border-[#848484]" />
 
           <Menu.Item
             key="11"

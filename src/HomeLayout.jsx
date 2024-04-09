@@ -5,17 +5,13 @@ import { Layout, Menu, Button, Drawer, theme } from "antd";
 import ScrollButton from "./Components/ScrollToTop/ScrollToTop";
 
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
-import {
-  IoArrowBack,
-  IoArrowForwardSharp,
-  IoShareSocialOutline,
-  IoSettingsSharp,
-} from "react-icons/io5";
-import { FaUserLarge } from "react-icons/fa6";
-import { MdOutlineHistory, MdFeedback } from "react-icons/md";
-import { RiRouteFill } from "react-icons/ri";
-import { PiWarningOctagonFill } from "react-icons/pi";
-import { LuLogOut } from "react-icons/lu";
+import { LuLogIn } from "react-icons/lu";
+import { HiOutlineUserAdd } from "react-icons/hi";
+import TrafficIcon from "./assets/svg/TrafficIcon";
+import TripIcon from "./assets/svg/TripIcon";
+import ReportsIcon from "./assets/svg/ReportsIcon";
+import CommunityIcon from "./assets/svg/CommunityIcon";
+import EmergencyIcon from "./assets/svg/EmergencyIcon";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -38,166 +34,97 @@ const HomeLayout = () => {
         collapsible
         collapsed={collapsed}
         breakpoint="lg"
-        className="!bg-[#F5F8FF] hidden md:block !rounded-r-3xl !fixed !left-0 !h-full !z-[10000]"
+        className="!bg-[#F5F8FF] p-3 pt-36 hidden md:block !rounded-r-3xl !fixed !left-0 !h-full !z-[10000]"
       >
-        <div className="py-6 flex flex-col gap-2">
-          <Link
-            to="/dashboard"
-            className="text-[#011750] text-center font-bold text-[18px] mb-2"
-          >
-            Traffic Tracker
-          </Link>
-          <div
-            className={`pb-2 flex flex-col px-4 ${
-              collapsed ? "items-center" : "items-end"
-            } border-b-2`}
-          >
-            <button onClick={toggleCollapsed} className="">
-              {collapsed ? <IoArrowForwardSharp /> : <IoArrowBack />}
-            </button>
+        <div className="flex flex-col gap-[80px]">
+          <div className="flex flex-col gap-[8px]">
+            <h2 className="text-[#011750] text-center font-medium text-[22px]">
+              Welcome to{" "}
+              <span className="text-[24px] font-extrabold">
+                Traffic Tracker
+              </span>
+            </h2>
+            <p className="text-[#01175099] text-center font-medium text-[14px]">
+              Stay ahead of time now!
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[32px]">
+            <Link
+              to="register"
+              className="text-[18px] rounded-[10px] text-center p-3 block bg-[#011750] border border-transparent text-white hover:text-[#011750] hover:bg-transparent hover:border-[#011750]"
+            >
+              Register
+            </Link>
+            <Link
+              to="login"
+              className="text-[18px] rounded-[10px] text-center p-3 block hover:bg-[#011750] bg-transparent border hover:border-transparent hover:text-white text-[#011750] border-[#011750]"
+            >
+              Login
+            </Link>
           </div>
         </div>
-
-        <Menu
-          mode="inline"
-          className="!bg-[#F5F8FF] "
-          //   !w-max
-          // defaultSelectedKeys={["1"]}
-        >
-          <Menu.Item key="1" icon={<FaUserLarge className="w-4 h-4" />}>
-            <Link to="profile">Profile</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            key="2"
-            icon={<MdOutlineHistory className="w-4 h-4 mr-1" />}
-          >
-            <Link to="trip-history">Trip History</Link>
-          </Menu.Item>
-
-          <Menu.Item key="3" icon={<RiRouteFill className="w-4 h-4" />}>
-            <Link to="favorite-routes">Favorite Routes</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            key="4"
-            icon={<PiWarningOctagonFill className="w-4 h-4 mr-1" />}
-          >
-            <Link to="report-happening">Report Happening</Link>
-          </Menu.Item>
-
-          <Menu.Item key="5" icon={<MdFeedback className="w-4 h-4" />}>
-            <Link to="feedback-and-rating">Feedback & Rating</Link>
-          </Menu.Item>
-
-          {/*            */}
-          <Menu.Item disabled={true} style={{ padding: 0 }} />
-          <Menu.Item disabled={true} style={{ padding: 0 }} />
-          <Menu.Item disabled={true} style={{ padding: 0 }} />
-          {/*            */}
-
-          <Menu.Item
-            key="6"
-            icon={<IoSettingsSharp className="w-4 h-4 mr-1" />}
-          >
-            <Link to="settings">Settings</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            key="7"
-            icon={<IoShareSocialOutline className="w-4 h-4 mr-1" />}
-          >
-            <Link to="invite">Invite</Link>
-          </Menu.Item>
-
-          <Menu.Item key="8" icon={<LuLogOut className="w-4 h-4" />}>
-            <Link to="/">Logout</Link>
-          </Menu.Item>
-        </Menu>
       </Sider>
 
       <Drawer
         // title="Traffic Tracker"
-        className="!bg-[#F5F8FF] !rounded-r-3xl md:hidden !p-0"
+        className="!bg-[#F5F8FF] !rounded-r-3xl md:hidden !p-0 !pt-12"
         placement="left"
         closable={false}
-        width={200}
+        width={250}
         onClose={toggleDrawer}
         open={drawerVisible}
       >
-        <div className="pb-4 flex flex-col gap-2">
-          <Link
-            to="/dashboard"
-            className="text-[#011750] text-center font-bold text-[18px] mb-2"
-          >
-            Traffic Tracker
-          </Link>
+        <div className="flex flex-col gap-[40px]">
+          <div className="flex flex-col gap-[8px]">
+            <h2 className="text-[#011750] text-center font-medium text-[18px]">
+              Welcome to <br />
+              <span className="text-[20px] font-extrabold">
+                Traffic Tracker
+              </span>
+            </h2>
+            <p className="text-[#01175099] text-center font-medium text-[12px]">
+              Stay ahead of time now!
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-[10px]">
+            <Link
+              to="register"
+              className="text-[14px] rounded-[10px] text-center p-3 block bg-[#011750] border border-transparent text-white hover:text-[#011750] hover:bg-transparent hover:border-[#011750]"
+            >
+              Register
+            </Link>
+            <Link
+              to="login"
+              className="text-[14px] rounded-[10px] text-center p-3 block hover:bg-[#011750] bg-transparent border hover:border-transparent hover:text-white text-[#011750] border-[#011750]"
+            >
+              Login
+            </Link>
+          </div>
         </div>
+
+        <div className="border-b-2 border-[#848484] py-3" />
+
         <Menu
-          mode="vertical"
-          className="!bg-[#F5F8FF]"
-          // defaultSelectedKeys={["1"]}
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          className="!bg-[#F5F8FF] mt-5"
         >
-          <Menu.Item key="1">
+          <Menu.Item key="1" icon={<TrafficIcon className="w-4 h-4" />}>
             <Link to="">Live Traffic</Link>
           </Menu.Item>
-          <Menu.Item key="2">
+          <Menu.Item key="2" icon={<TripIcon className="w-4 h-4" />}>
             <Link to="trip">Trip</Link>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item key="3" icon={<ReportsIcon className="w-4 h-4" />}>
             <Link to="reports">Reports</Link>
           </Menu.Item>
-          <Menu.Item key="4">
+          <Menu.Item key="4" icon={<CommunityIcon className="w-4 h-4" />}>
             <Link to="community">Community</Link>
           </Menu.Item>
-          <Menu.Item key="5">
+          <Menu.Item key="5" icon={<EmergencyIcon className="w-4 h-4" />}>
             <Link to="emergency">Emergency</Link>
-          </Menu.Item>
-
-          <Menu.Item disabled={true} style={{ padding: 0 }} />
-
-          <Menu.Item key="6" icon={<FaUserLarge className="w-4 h-4" />}>
-            <Link to="profile">Profile</Link>
-          </Menu.Item>
-
-          <Menu.Item key="7" icon={<MdOutlineHistory className="w-4 h-4" />}>
-            <Link to="trip-history">Trip History</Link>
-          </Menu.Item>
-
-          <Menu.Item key="8" icon={<RiRouteFill className="w-4 h-4" />}>
-            <Link to="favorite-routes">Favorite Routes</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            key="9"
-            icon={<PiWarningOctagonFill className="w-4 h-4 mr-1" />}
-          >
-            <Link to="report-happening">Report Happening</Link>
-          </Menu.Item>
-
-          <Menu.Item key="10" icon={<MdFeedback className="w-4 h-4" />}>
-            <Link to="feedback-and-rating">Feedback & Rating</Link>
-          </Menu.Item>
-
-          {/* <Menu.Item disabled={true} style={{ padding: 0 }} />
-          <Menu.Item disabled={true} style={{ padding: 0 }} /> */}
-
-          <Menu.Item
-            key="11"
-            icon={<IoSettingsSharp className="w-4 h-4 mr-1" />}
-          >
-            <Link to="settings">Settings</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            key="12"
-            icon={<IoShareSocialOutline className="w-4 h-4 mr-1" />}
-          >
-            <Link to="invite">Invite</Link>
-          </Menu.Item>
-
-          <Menu.Item key="13" icon={<LuLogOut className="w-4 h-4" />}>
-            <Link to="/">Logout</Link>
           </Menu.Item>
         </Menu>
       </Drawer>
