@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
+const Register = () => {
   const [isPasswordHidden, setPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmPasswordHidden] = useState(true);
 
@@ -297,4 +297,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;
