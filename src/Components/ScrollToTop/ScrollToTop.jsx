@@ -34,13 +34,13 @@ const ScrollToTop = () => {
   return (
     <div className="fixed right-4 bottom-4 tablet:right-6 tablet:bottom-6 laptop:right-8 laptop:bottom-8">
       {isVisible && (
-        <a
-          className="inline-block rounded-full bg-teal-600 p-2 text-white shadow transition cursor-pointer hover:bg-teal-500 tablet:p-3 laptop:p-4"
+        <button
+          className="inline-block rounded-full bg-[#011750] p-2 text-white hover:text-gray-100 shadow transition hover:bg-[#011750]/90 tablet:p-3 laptop:p-4"
           onClick={scrollToTop}
         >
           <span className="sr-only">Back to top</span>
           <FaChevronUp className="h-5 w-5" />
-        </a>
+        </button>
       )}
     </div>
   );
