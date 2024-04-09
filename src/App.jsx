@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeLayout from "./HomeLayout";
+import Layout from "./Layout";
 import "./App.css";
 import HomePage from "./Pages/Home/Home";
 import Signup from "./Pages/Signup/Signup";
@@ -27,11 +28,23 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Guest user */}
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="trip" element={<Trip />} />
+          <Route path="reports" element={<Reports />} />
+          <Route path="reports/report-item" element={<ReportItem />} />
+          <Route path="community" element={<Community />} />
+          <Route path="emergency" element={<Emergency />} />
+        </Route>
+
+        {/* authentication */}
+        <Route path="/" element={<Layout />}>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Route>
+
+        {/* Registered user */}
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
