@@ -4,7 +4,7 @@ import HomeLayout from "./HomeLayout";
 import Layout from "./Layout";
 import "./App.css";
 import HomePage from "./Pages/Home/Home";
-import Signup from "./Pages/Signup/Signup";
+import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Profile from "./Pages/Profile/Profile";
@@ -23,6 +23,7 @@ import Settings from "./Pages/Settings/Settings";
 import Invite from "./Pages/Invite/Invite";
 import PasswordChange from "./Pages/Settings/PasswordChange";
 import DeleteAccount from "./Pages/Settings/DeleteAccount";
+import NotFoundPage from "./Pages/NotFoundPage.jsx";
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
         {/* authentication */}
         <Route path="/" element={<Layout />}>
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route path="register" element={<Register />} />
         </Route>
 
         {/* Registered user */}
@@ -69,6 +70,9 @@ function App() {
             element={<DeleteAccount />}
           />
         </Route>
+
+        {/* Catch-all route for 404 Not Found page */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
