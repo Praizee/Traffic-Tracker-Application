@@ -1,16 +1,33 @@
 /* Poppins font import  */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   scroll-behavior: smooth;
 }
+
+/* bouncing loader animation */
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
+
+.circle {
+  @apply w-4 h-4 my-12 mx-1 bg-blue-500 rounded-full;
+}
+
+/* end of bouncing loader animation */
 
 img {
   -webkit-user-drag: none;

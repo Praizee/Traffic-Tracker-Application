@@ -1,8 +1,59 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../Firebase/firebase.js";
+
+import { LoadingOutlined } from "@ant-design/icons";
+import Alerts from "../../Components/Alerts/Alerts.jsx";
 
 const Login = () => {
   const [isPasswordHidden, setPasswordHidden] = useState(true);
+
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false); // Add loading state
+  const [errorMessages, setErrorMessages] = useState([]);
+
+  const onLogin = (e) => {
+    e.preventDefault();
+    setErrorMessages([]); // Clear any previous error messages
+    setLoading(true); // Start loading
+
+    if (!email || !password) {
+      setErrorMessages(["Email and password are required."]);
+      setLoading(false);
+      return;
+    }
+
+    let errorMessage = ""; // Use let instead of const
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/dashboard");
+        console.log(user);
+        console.log("Signed in!");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        errorMessage = error.message; // Reassign errorMessage with let
+
+        // delete this to continue using FirebaseError
+        if (errorCode === "auth/invalid-login-credentials") {
+          errorMessage =
+            "Invalid login credentials. Check your email and password and try again.";
+        }
+
+        console.log(errorCode, errorMessage);
+      })
+      .finally(() => {
+        // Set the error message to display to the user
+        setErrorMessages([errorMessage]);
+        setLoading(false); // Stop loading after success or failure
+      });
+  };
 
   return (
     // <main className="w-full lg:px-12 md:px-5 md:pt-10 pt-16 px-4 bg-hero-bg bg-cover bg-center min-h-screen flex flex-col items-center justify-center sm:px-4">
@@ -31,16 +82,24 @@ const Login = () => {
             className="space-y-5 text-white"
           >
             <div>
-              <label className="font-medium">Email</label>
+              <label htmlFor="Email" className="font-medium">
+                Email
+              </label>
               <input
                 type="email"
-                required
+                id="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email Address"
+                required
+                autoFocus
                 className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
               />
             </div>
             <div>
-              <label className="font-medium">Password</label>
+              <label htmlFor="Password" className="font-medium">
+                Password
+              </label>
               <div className="relative mt-2">
                 <button
                   type="button"
@@ -87,14 +146,41 @@ const Login = () => {
                 </button>
                 <input
                   type={isPasswordHidden ? "password" : "text"}
+                  id="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                   required
                   className="w-full pr-12 pl-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
                 />
               </div>
             </div>
-            <button className="w-full px-4 py-2 text-white font-medium bg-[#002A97]/90 hover:bg-[#002A97] active:bg-indigo-600 rounded-lg duration-150">
-              Login
+            <button
+              type="submit"
+              onClick={onLogin}
+              className="w-full px-4 py-2 text-white font-medium bg-[#002A97]/90 hover:bg-[#002A97] active:bg-indigo-600 rounded-lg duration-150"
+              disabled={loading} // Disable the button while loading
+            >
+              {loading ? (
+                <>
+                  <span className="flex place-content-center gap-2">
+                    <LoadingOutlined
+                      color="blue"
+                      className="h-5 w-5 text-white"
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                    <span className="">
+                      {/* text-gray-800 text-sm */}
+                      Logging in...{" "}
+                    </span>
+                  </span>
+                </>
+              ) : (
+                "Login"
+              )}
             </button>
 
             <div className="text-white text-sm">
@@ -171,6 +257,9 @@ const Login = () => {
                 </svg>
               </button>
             </div>
+
+            {/* error alert message */}
+            <Alerts errorMessages={errorMessages} />
           </form>
         </div>
         <div className="text-center">

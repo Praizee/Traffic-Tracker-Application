@@ -1,9 +1,141 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
+import { auth, db } from "../../Firebase/firebase.js";
+import { getDatabase, ref, set } from "firebase/database";
+import { useAppContext } from "../../Context/AppContext";
+
+import { LoadingOutlined } from "@ant-design/icons";
+import Alerts from "../../Components/Alerts/Alerts.jsx";
 
 const Register = () => {
   const [isPasswordHidden, setPasswordHidden] = useState(true);
   const [isConfirmPasswordHidden, setConfirmPasswordHidden] = useState(true);
+
+  const { user, setUser } = useAppContext(); // Use the user state from the context
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [errorMessages, setErrorMessages] = useState([]);
+  const [successMessages, setSuccessMessages] = useState([]);
+
+  const handleChange = (e) => {
+    const { value, name } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  const initialUserState = {
+    fullName: "",
+    email: "",
+    phone: "",
+    password: "",
+    gender: "",
+    dob: "",
+    address: "",
+    busStop: "",
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessages([]);
+    setSuccessMessages([]); // Clear any existing success messages
+
+    // Extract user input
+    const { email, phone, password, fullName, gender, dob, address, busStop } =
+      user;
+
+    // Check if any field is empty
+    if (
+      !email ||
+      !phone ||
+      !password ||
+      !fullName ||
+      !gender ||
+      !dob ||
+      !address ||
+      !busStop
+    ) {
+      setErrorMessages(["Please fill in all fields."]);
+      return;
+    }
+
+    // Check if the email is valid
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    if (!emailRegex.test(email)) {
+      setErrorMessages(["Invalid email. Email should contain an '@'."]);
+      return;
+    }
+
+    // Check if passwords match
+    if (password !== user.confirmPassword) {
+      setErrorMessages((prev) => [...prev, "Passwords do not match."]);
+      return;
+    }
+
+    // Check if the password meets your criteria
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setErrorMessages([
+        "Password should be at least 6 characters and contain at least one uppercase letter, one lowercase letter, and one number.",
+      ]);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await updateProfile(userCredential.user, {
+        displayName: `${fullName}`,
+      });
+
+      // Send email verification
+      await sendEmailVerification(userCredential.user);
+
+      const db = getDatabase();
+      const usersRef = ref(db, "users/" + userCredential.user.uid);
+
+      set(usersRef, {
+        full_name: fullName,
+        email: email,
+        phone: phone,
+        password: password,
+        gender: gender,
+        dob: dob,
+        address: address,
+        bus_stop: busStop,
+      });
+
+      // Add the success message here
+      console.log(
+        "Account created successfully! Please check your email to verify your account."
+      );
+      setSuccessMessages([
+        "Account created successfully! Please check your email to verify your account.",
+      ]);
+
+      // Automatically clear the success message and navigate after 5 seconds
+      setTimeout(() => {
+        setSuccessMessages([]);
+        navigate("/");
+      }, 5000);
+    } catch (error) {
+      console.error("Error creating user:", error);
+      setErrorMessages([error.message]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     // <main className="w-full lg:px-12 md:px-5 md:pt-10 pt-16 px-4 bg-hero-bg bg-cover bg-center min-h-screen flex flex-col items-center justify-center sm:px-4">
@@ -33,9 +165,16 @@ const Register = () => {
           >
             {/* fullname */}
             <div>
-              <label className="font-medium">Full Name</label>
+              <label htmlFor="FullName" className="font-medium">
+                Full Name
+              </label>
               <input
                 type="text"
+                id="FullName"
+                value={user?.fullName ?? ""}
+                onChange={(e) => handleChange(e)}
+                name="fullName"
+                autoFocus
                 required
                 placeholder="Full Name"
                 className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
@@ -44,11 +183,34 @@ const Register = () => {
 
             {/* email */}
             <div>
-              <label className="font-medium">Email</label>
+              <label htmlFor="Email" className="font-medium">
+                Email
+              </label>
               <input
                 type="email"
+                id="Email"
+                value={user?.email ?? ""}
+                onChange={(e) => handleChange(e)}
+                name="email"
                 required
                 placeholder="Email Address"
+                className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
+              />
+            </div>
+
+            {/* phone */}
+            <div>
+              <label htmlFor="Phone" className="font-medium">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="Phone"
+                value={user?.phone ?? ""}
+                onChange={(e) => handleChange(e)}
+                name="phone"
+                required
+                placeholder="+2349012312312"
                 className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
               />
             </div>
@@ -102,6 +264,11 @@ const Register = () => {
                 </button>
                 <input
                   type={isPasswordHidden ? "password" : "text"}
+                  value={user?.password ?? ""}
+                  onChange={(e) => handleChange(e)}
+                  id="Password"
+                  name="password"
+                  required
                   placeholder="Password"
                   className="w-full pr-12 pl-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
                 />
@@ -110,7 +277,9 @@ const Register = () => {
 
             {/* re-enter password */}
             <div>
-              <label className="font-medium">Confirm Password</label>
+              <label htmlFor="ConfirmPassword" className="font-medium">
+                Confirm Password
+              </label>
               <div className="relative mt-2">
                 <button
                   type="button"
@@ -159,6 +328,11 @@ const Register = () => {
                 </button>
                 <input
                   type={isConfirmPasswordHidden ? "password" : "text"}
+                  value={user?.confirmPassword ?? ""}
+                  onChange={(e) => handleChange(e)}
+                  id="ConfirmPassword"
+                  name="confirmPassword"
+                  required
                   placeholder="Re enter Password"
                   className="w-full pr-12 pl-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
                 />
@@ -168,18 +342,32 @@ const Register = () => {
             {/* Gender and D.O.B */}
             <div className="flex gap-4 justify-between">
               <div className="flex-1">
-                <label className="font-medium">Gender</label>
-                <select className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg">
+                <label htmlFor="gender" className="font-medium">
+                  Gender
+                </label>
+                <select
+                  id="gender"
+                  value={user?.gender ?? ""}
+                  onChange={(e) => handleChange(e)}
+                  name="gender"
+                  className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
+                >
+                  <option value="">Select gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                 </select>
               </div>
               <div className="flex-1">
-                <label className="font-medium">D.O.B</label>
+                <label htmlFor="DOB" className="font-medium">
+                  D.O.B
+                </label>
                 <input
-                  type="text"
+                  type="date"
+                  id="DOB"
+                  value={user?.dob ?? ""}
+                  onChange={(e) => handleChange(e)}
+                  name="dob"
                   required
-                  placeholder="31/12/1987"
                   className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
                 />
               </div>
@@ -187,9 +375,15 @@ const Register = () => {
 
             {/* Residential Address */}
             <div>
-              <label className="font-medium">Residential Address</label>
+              <label htmlFor="Address" className="font-medium">
+                Residential Address
+              </label>
               <input
                 type="text"
+                id="Address"
+                value={user?.address ?? ""}
+                onChange={(e) => handleChange(e)}
+                name="address"
                 required
                 placeholder="Residential Address"
                 className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
@@ -198,17 +392,42 @@ const Register = () => {
 
             {/* Nearest Bus-Stop */}
             <div>
-              <label className="font-medium">Nearest Bus-Stop</label>
+              <label htmlFor="BusStop" className="font-medium">
+                Nearest Bus-Stop
+              </label>
               <input
                 type="text"
+                id="BusStop"
+                value={user?.busStop ?? ""}
+                onChange={(e) => handleChange(e)}
+                name="busStop"
                 required
                 placeholder="Nearest Bus-Stop"
                 className="w-full mt-2 px-3 py-2 bg-white text-gray-500 bg-transparent outline-none border-none focus:border-indigo-600 shadow-sm rounded-lg"
               />
             </div>
 
-            <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
-              Sign in
+            <button
+              type="submit"
+              onClick={onSubmit}
+              className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
+            >
+              {loading ? (
+                <>
+                  <span className="flex place-content-center gap-2">
+                    <LoadingOutlined
+                      className="h-5 w-5 text-white"
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                    <span className="">Creating Account...</span>
+                  </span>
+                </>
+              ) : (
+                "Create account"
+              )}
             </button>
 
             <div className="text-white">
@@ -285,6 +504,13 @@ const Register = () => {
                 </svg>
               </button>
             </div>
+
+            {/* Display the Alerts component with error and success messages */}
+            <Alerts
+              errorMessages={errorMessages}
+              successMessages={successMessages}
+            />
+            {/* Pass successMessages to Alerts component */}
           </form>
         </div>
         <div className="text-center">
